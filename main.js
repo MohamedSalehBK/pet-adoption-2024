@@ -19,7 +19,7 @@ async function petsArea() {
         clone.querySelector("h3").textContent = pet.name
         clone.querySelector(".pet-description").textContent = pet.description
         clone.querySelector(".pet-age").textContent = creatTextAge(pet.birthYear)
-        if(!pet.photo) pet.photo = "images/fallback.jpg"
+        if (!pet.photo) pet.photo = "images/fallback.jpg"
         clone.querySelector(".pet-card-photo img").src = pet.photo
         clone.querySelector(".pet-card-photo img").alt = `A ${pet.species} named ${pet.name}.`
         wrapper.appendChild(clone)
@@ -38,5 +38,18 @@ function creatTextAge(birthyear) {
     if (age == 0) return "less than a year old"
     return `${age}years old`
 
+}
+
+// pet filiter button code
+    const allButton = document.querySelectorAll(".pet-filter button")
+    allButton.forEach(el => el.addEventListener('click', handleButtonClick))
+
+
+function handleButtonClick(e) {
+    // remove active class from any and all buttons
+     allButton.forEach(el => el.classList.remove("active"))
+    // add active class to the specific button that just get clicked
+    e.target.classList.add("active")
+    //acually filter tha pets down below
 
 }

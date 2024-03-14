@@ -9,6 +9,7 @@ html {
 body {
     font-family: "Source Sans 3", sans-serif;
 }
+
 html {
     scroll-behavior: smooth;
 }
@@ -77,6 +78,7 @@ html {
     border: 2px solid white;
     transition: background-color .3s ease-out, border .3s ease-out;
 }
+
 .utility-mr {
     margin-right: 10px;
 }
@@ -174,6 +176,15 @@ html {
     font-family: "Source Sans 3", sans-serif;
     font-size: 1.15rem;
     color: #9f9f9f;
+    cursor: pointer;
+}
+.pet-filter button:hover {
+    color:#7d7d7d;
+}
+
+.pet-filter .active, .pet-filter .active:hover {
+    color: #475AFF;
+    text-decoration: underline;
 }
 
 .site-footer {
