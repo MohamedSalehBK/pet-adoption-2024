@@ -16,6 +16,7 @@ async function petsArea() {
     const petsDate = await petsPromise.json()
     petsDate.forEach(pet => {
         const clone = template.content.cloneNode(true)
+        clone.querySelector(".pet-card").dataset.species = pet.species
         clone.querySelector("h3").textContent = pet.name
         clone.querySelector(".pet-description").textContent = pet.description
         clone.querySelector(".pet-age").textContent = creatTextAge(pet.birthYear)
@@ -50,6 +51,16 @@ function handleButtonClick(e) {
      allButton.forEach(el => el.classList.remove("active"))
     // add active class to the specific button that just get clicked
     e.target.classList.add("active")
+
     //acually filter tha pets down below
+    const currentFiliter = e.target.dataset.filiter
+    document.querySelectorAll(".pet-card").forEach(el => {
+        if(currentFiliter == el.dataset.species || currentFiliter == "all") {
+         el.style.display = "grid"
+        } else {
+            el.style.display = "none"
+        }
+    })
+
 
 }
